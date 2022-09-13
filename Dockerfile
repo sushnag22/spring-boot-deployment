@@ -1,6 +1,10 @@
 # Use the OpenJDK 11 as the base image
 FROM openjdk:11
 
+# Running the application as a non-root user
+RUN addgroup -S sushnag22 && adduser -S sushnag22 -G sushnag22
+USER sushnag22:sushnag22
+
 # Path to JAR file
 ARG JAR_FILE=target/*.jar
 
